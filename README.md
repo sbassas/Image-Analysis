@@ -1,2 +1,8 @@
-# Image-Analysis
-code written over the years for the BAM lab at McGill
+# Image-Analysis (A compilation of algorithms written over the years for the BAM lab at McGill)
+## Traction Force Microscopy (TFM) 
+### Premise
+This bioengineering technique lets us quantify cell forces based on how much cells deform the substrate they are attached to. When a cell contracts, it pulls on its substrate. In TFM, this substrate is a gel embedded with fluorescent beads that can be imaged at high resolutions. Therefore, images taken before and after a cell contracts will exhibit bead displacements. From the properties of the gel, we can then compute how much force was required to displace the beads the were displaced by the cell.
+### Issues
+Unfortunately, TFM is highly sensitive to a number of experimental and computational parameters that are hard to control. To reduce the costs of replicating experiments and to validate the accuracy of TFM analysis, simulations of TFM experiments have been designed. One such simulation is described in [this paper by Peñas et al.](https://www.researchgate.net/publication/261369299_Validation_tool_for_traction_force_microscopy) and it generates simulated images of how beads will be displaced when a desired input force is applied to the virtual substrate. As such, one can find the force parameter that will cause the same amount of bead displacement in the simulation as was found experimentally. Moreover, one could run TFM anaylsis on the simulated images to compare if the forces applied on the substrate experimentally are comparable to the forces applied in the simulation to give these images with identicaly displacement.
+### Algorithm
+To aid in this validation step, I have written an algorithm that modifies the script written by Peñas et al. to find the optimal force input parameter that will give the same displacement values as a target displacement value obtained experimentally through TFM analysis. This algorithm is based on one of the classical AI algorithms called Simmulated Annealing which is a local search algorithm.
